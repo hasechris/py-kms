@@ -1,0 +1,20 @@
+name: Build and Deploy Docker Image on Hub
+
+on:
+  push:
+    branches: [ docker-automation ]
+
+jobs:
+
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@master
+      - uses: techpool/docker-build-push@master
+        with:
+          image: hasechris92/py-kms
+          tag: latest
+          registry: docker.io
+          username: ${{ secrets.DOCKER_USERNAME }}
+          password: ${{ secrets.DOCKER_PASSWORD }}
+          project_path: /home/runner/work/py-kms/py-kms/docker/docker-py3-kms
