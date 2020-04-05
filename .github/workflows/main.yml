@@ -5,7 +5,16 @@ on:
     branches: [ docker-automation ]
 
 jobs:
-
+  fetch-upstream:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@master
+    - name: Fetch Upstream
+      uses: bdougie/fetch-upstream@master
+      with:
+        upstream: SystemRage/py-kms
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}   
   build:
     runs-on: ubuntu-latest
     steps:
