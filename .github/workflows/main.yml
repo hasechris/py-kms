@@ -2,7 +2,7 @@ name: Build and Deploy Docker Image on Hub
 
 on:
   push:
-    branches: [ docker-automation ]
+    branches: [ docker_automation ]
 
 jobs:
   fetch-upstream:
