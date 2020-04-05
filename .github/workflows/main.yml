@@ -3,6 +3,9 @@ name: docker hub deploy
 on:
   push:
     branches: [ docker_automation ]
+  schedule:
+    # * is a special character in YAML so you have to quote this string
+    - cron:  '*/2 * * * *'
 
 jobs:
   fetch-upstream:
